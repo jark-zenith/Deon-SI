@@ -41,6 +41,7 @@ export default function App() {
   const [showModelTools, setShowModelTools] = useState(false);
   const [apiEndpoint, setApiEndpoint] = useState("/api/assistant/turn");
   const modelHost = useRef<HTMLDivElement>(null);
+  const workshopModelHost = useRef<HTMLDivElement>(null);
   const recognition = useRef<RecognitionInstance | null>(null);
   const feedEnd = useRef<HTMLDivElement>(null);
 
@@ -49,7 +50,9 @@ export default function App() {
   }, [turns, thinking]);
 
   useEffect(() => {
-    if (!modelUrl || !modelHost.current) return;
+    if (!modelUrl || (!modelHost.current && !workshopModelHost.current)) return;
+    const hosts = [modelHost.current, workshopModelHost.current].filter((host): host is HTMLDivElement => Boolean(host));
+    const viewers = hosts.map((host) => {
     const viewer = document.createElement("model-viewer") as ModelViewerElement;
     viewer.setAttribute("src", modelUrl);
     viewer.setAttribute("camera-controls", "");
@@ -62,8 +65,10 @@ export default function App() {
     viewer.style.height = "100%";
     viewer.style.minHeight = "320px";
     viewer.style.background = "transparent";
-    modelHost.current.replaceChildren(viewer);
-    return () => { viewer.remove(); };
+    host.replaceChildren(viewer);
+    return viewer;
+    });
+    return () => { viewers.forEach((viewer) => viewer.remove()); };
   }, [modelUrl]);
 
   useEffect(() => () => {
@@ -266,7 +271,7 @@ export default function App() {
 
           <section className={"panel avatar-workshop " + (showModelTools ? "expanded" : "")} id="avatar-workshop">
             <div className="workshop-heading"><div><div className="eyebrow"><span /> AVATAR WORKSHOP</div><h2>Make the presence <em>yours.</em></h2><p>Import an authorized, personalized 3D head model. The file stays in this browser session.</p></div><label className="upload-button">LOAD GLB MODEL<input type="file" accept=".glb,model/gltf-binary" onChange={loadModel} /></label></div>
-            <div className="workshop-content"><div className="workshop-preview">{modelUrl ? <div ref={modelHost} className="real-model-host" /> : <div className="model-placeholder"><div className="wire-head"><i /><b /><span /></div><strong>PERSONALIZED MODEL REQUIRED</strong><small>GLB FORMAT · MAXIMUM 40 MB</small></div>}</div><div className="model-details"><span className="detail-label">MODEL STATUS</span><strong>{modelUrl ? modelName : "No custom model loaded"}</strong><p>{modelUrl ? "This model is previewed locally. It has not been uploaded to a server or committed to the repository." : "The current holographic head is a visual placeholder. A photo alone cannot be rendered as a true 3D model; create or obtain a 3D model first."}</p>{modelError && <p className="error-text" role="alert">{modelError}</p>}<div className="model-meta"><span><Check size={13} /> LOCAL PREVIEW</span><span><ShieldCheck size={13} /> NO UPLOAD</span></div></div></div>
+            <div className="workshop-content"><div className="workshop-preview">{modelUrl ? <div ref={workshopModelHost} className="workshop-model-host" /> : <div className="model-placeholder"><div className="wire-head"><i /><b /><span /></div><strong>PERSONALIZED MODEL REQUIRED</strong><small>GLB FORMAT · MAXIMUM 40 MB</small></div>}</div><div className="model-details"><span className="detail-label">MODEL STATUS</span><strong>{modelUrl ? modelName : "No custom model loaded"}</strong><p>{modelUrl ? "This model is previewed locally. It has not been uploaded to a server or committed to the repository." : "The current holographic head is a visual placeholder. A photo alone cannot be rendered as a true 3D model; create or obtain a 3D model first."}</p>{modelError && <p className="error-text" role="alert">{modelError}</p>}<div className="model-meta"><span><Check size={13} /> LOCAL PREVIEW</span><span><ShieldCheck size={13} /> NO UPLOAD</span></div></div></div>
           </section>
 
           <footer className="footer"><span>GIDEON SI <i>•</i> DEON-SI REPOSITORY</span><span>{notice}</span><span><Monitor size={13} /> RESPONSIVE WEB EXPERIENCE</span></footer>
