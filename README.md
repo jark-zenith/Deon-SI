@@ -6,7 +6,6 @@ Deon SI is a voice-first Android launcher concept that combines everyday phone o
 
 > **Project status:** Concept and early prototype. Features described as planned are not claims of completed functionality. The repository is intentionally being kept documentation-only for now.
 
-
 ## Visual concept
 
 The visuals below communicate the current direction of Deon SI. They are concept references, not proof that every screen or feature is already implemented.
@@ -21,8 +20,11 @@ The visuals below communicate the current direction of Deon SI. They are concept
 
 ### Concept video
 
-<video src="https://raw.githubusercontent.com/jark-zenith/Deon-SI/main/Deon%20SI%20.mp4" controls width="100%"></video>
+GitHub may not play a repository MP4 inline in a README. To keep the video visible and accessible, click the preview image below to open the video file.
 
+[![Open the Deon SI concept video](Deon%20SI%20.png)](Deon%20SI%20.mp4)
+
+[Open or play the Deon SI concept video](Deon%20SI%20.mp4)
 
 ## The product
 
