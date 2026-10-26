@@ -21,7 +21,7 @@ The visuals below communicate the current direction of Deon SI. They are concept
 
 ### Concept video
 
-[▶ Watch the Deon SI concept video (MP4)](Deon%20SI%20.mp4)
+<video src="https://raw.githubusercontent.com/jark-zenith/Deon-SI/main/Deon%20SI%20.mp4" controls width="100%"></video>
 
 
 ## The product
