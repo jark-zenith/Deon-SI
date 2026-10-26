@@ -6,6 +6,24 @@ Deon SI is a voice-first Android launcher concept that combines everyday phone o
 
 > **Project status:** Concept and early prototype. Features described as planned are not claims of completed functionality. The repository is intentionally being kept documentation-only for now.
 
+
+## Visual concept
+
+The visuals below communicate the current direction of Deon SI. They are concept references, not proof that every screen or feature is already implemented.
+
+### Three-mode app concept
+
+![Pencil-sketched Deon SI app concept showing Hologram, Voice, and Manual modes](Pencil-Sketched%20Deon%20AI%20App%20Concept.png)
+
+### Project photo
+
+![Deon SI project photo](IMG_20261026_121145.jpg)
+
+### Concept video
+
+[▶ Watch the Deon SI concept video (MP4)](Deon%20SI%20.mp4)
+
+
 ## The product
 
 Deon SI brings three experiences together in one launcher:
@@ -67,7 +85,7 @@ A web page alone cannot replace Android's home screen, enumerate and launch all 
 
 ## Current scope and limitations
 
-This README is the repository's sole intended content at this stage. Source code, workflows, implementation plans and prototype files are intentionally not being retained on the default branch while the project scope is reset.
+This repository currently includes the README, visual concept images, and a concept video. Application source code and a working Android build are not represented as complete in this repository at this stage.
 
 No claim is made here that the native launcher, Meta model integration, real phone actions, personalized 3D avatar, downloadable character packs, persistent memory or complete voice pipeline are already implemented.
 
