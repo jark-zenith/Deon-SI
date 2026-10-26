@@ -22,7 +22,7 @@ The visuals below communicate the current direction of Deon SI. They are concept
 
 GitHub may not play a repository MP4 inline in a README. To keep the video visible and accessible, click the preview image below to open the video file.
 
-[![Open the Deon SI concept video](Deon%20SI%20.png)](Deon%20SI%20.mp4)
+<a href="Deon%20SI%20.mp4"><img src="Deon%20SI%20.png" alt="Open the Deon SI concept video" width="480"></a>
 
 [Open or play the Deon SI concept video](Deon%20SI%20.mp4)
 
